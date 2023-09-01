@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Candal|Chewy&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="todo-container">
+        <h2>Lista de Tarefas</h2>
+        <div class="todo">
+            <form action="/" method="POST" class="todo-header">
+                <input type="text" name="content">
+                <button type="submit"><strong>+</strong></button>
+            </form>
+            <ul class="todo-list">
+                <% tarefas.forEach(tarefa=> { %>
+                    <li class="todo-list-item">
+                        <div class="todo-list-item-name">
+                            <%= tarefa %>
+                        </div>
+                    </li>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</body>

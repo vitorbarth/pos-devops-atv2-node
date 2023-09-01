@@ -12,14 +12,12 @@
         <div class="todo">
             <form action="/" method="POST" class="todo-header">
                 <input type="text" name="content">
-                <button type="submit"><strong>+</strong></button>
+                <button id="btnAdd" type="submit"><strong>+</strong></button>
             </form>
             <ul class="todo-list">
                 <% tarefas.forEach(tarefa=> { %>
                     <li class="todo-list-item">
-                        <div class="todo-list-item-name">
-                            <%= tarefa %>
-                        </div>
+                        <div id="itmTarefa" class="todo-list-item-name"><%= tarefa %></div>
                     </li>
                 <% }) %>
             </ul>

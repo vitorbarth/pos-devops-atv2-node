@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pos-devops-atv2-node
+spec:
+  selector:
+    app: pos-devops-atv2-node
+  ports:
+    - port: 8080
+      targetPort: 3000
+  type: LoadBalancer

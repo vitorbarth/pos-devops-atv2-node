@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pos-devops-atv2-node
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pos-devops-atv2-node
+  template:
+    metadata:
+      labels:
+        app: pos-devops-atv2-node
+    spec:
+      containers:
+        - name: app
+          image: vitorbarth/pos-devops-atv2-node:latest
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: Always

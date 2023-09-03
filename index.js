@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 8080;
+const port = 3000;
 let tarefas = [];
 app.use(express.static(__dirname + '/public'));
 

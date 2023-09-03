@@ -55,6 +55,25 @@ jobs:
           env:
             CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
             GITHUB_TOKEN: ${{ secrets.CYPRESS_GITHUB_TOKEN }}
+            
+  build:
+    runs-on: ubuntu-latest
+    name: Scan da imagem docker
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build an image from Dockerfile
+        run: |
+          docker build -t vitorbarth/pos-devops-atv2-node .
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'vitorbarth/pos-devops-atv2-node'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
 
   build_image:
     runs-on: ubuntu-latest
